@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Anu 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9ad5, #c77dff);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+header {
+  padding: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(6px);
+}
+
+.hero {
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.card {
+  margin: 30px auto;
+  padding: 25px;
+  max-width: 600px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  white-space: pre-line;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #c77dff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+
+/* Typing and cursor */
+#text {
+  white-space: pre-line;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background-color: white;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+💖 A Special Page Just For Anu 💖
+</header>
+
+<section class="hero">
+  <h1>Happy Birthday Anu 🎂</h1>
+  <p>
+    Some people enter life quietly and become someone important.
+    You are that kind of person.
+  </p>
+</section>
+
+<div class="card">
+  <div id="text"></div><span class="cursor"></span>
+
+  <button onclick="showExtra()">Click for a Little Extra Message 💌</button>
+
+  <p id="extra" style="display:none; margin-top:15px;">
+    No matter what happens in life,
+    there will always be someone quietly caring for you.
+    <br><br>
+    With love and comfort,<br>
+    <b>From Sheha 💗</b>
+  </p>
+</div>
+
+<footer>
+Made with genuine feelings 🤍
+</footer>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const message = `💖 Loading Something Special...
+
+----------------------------------------
+        🎂 HAPPY BIRTHDAY ANU 🎂
+----------------------------------------
+
+Dear Anu,
+
+Some people enter life
+and stay just as a memory.
+
+But some…
+become a feeling.
+
+You became a feeling.
+
+Comfort.
+Warmth.
+A calm happiness I didn’t expect.
+
+On your birthday,
+I don’t just wish you success or smiles.
+
+I wish you a life
+where you are deeply loved,
+truly understood,
+and never feel alone.
+
+✔ May your heart always stay soft
+✔ May your smile never fade
+✔ May your dreams chase you back
+✔ And may you always feel how special you are
+
+I’m really grateful I met you.
+More than you probably know.
+
+`;
+
+let i = 0;
+const speed = 35;
+const textElement = document.getElementById("text");
+
+function typeWriter() {
+  if (i < message.length) {
+    textElement.innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => { heart.remove(); }, 6000);
+}
+
+function showExtra() {
+  document.getElementById("extra").style.display = "block";
+}
+
+window.onload = () => {
+  document.getElementById("bgMusic").play().catch(()=>{});
+  typeWriter();
+  setInterval(createHeart, 500);
+};
+</script>
+
+</body>
+</html>
