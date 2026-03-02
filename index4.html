@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anu 💖</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffcccc, #c77dff);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  padding: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.hero {
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 16px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.card {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  white-space: pre-line;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #c77dff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 30px;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+
+/* Typing effect */
+#text {
+  font-family: monospace;
+  font-size: 15px;
+  white-space: pre-line;
+}
+
+.cursor {
+  display: inline-block;
+  width: 6px;
+  background-color: white;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,100% {opacity:1;}
+  50% {opacity:0;}
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 18px;
+  animation: float 5s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-100vh) scale(1.3); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+💖 A Special Page for Anu 💖
+</header>
+
+<section class="hero">
+  <h1>Happy Birthday Anu 🎉</h1>
+  <p>To someone who brings comfort, warmth, and happiness — you make every day brighter.</p>
+</section>
+
+<div class="card">
+  <div id="text"></div><span class="cursor"></span>
+  <button onclick="showExtra()">Tap for a Personal Message 💌</button>
+  <p id="extra" style="display:none; margin-top:15px;">
+    Anu, just so you know:<br>
+    🌸 You are deeply cared for.<br>
+    🌸 Your presence is comforting.<br>
+    🌸 Your smile makes hearts happy.<br>
+    🌸 You are appreciated more than words can say.<br><br>
+    Always stay your wonderful self.<br>
+    <b>With love and care, From Sheha 💗</b>
+  </p>
+</div>
+
+<footer>
+Made with warmth and affection 🤍
+</footer>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const message = `💖 Loading Something Special...
+
+----------------------------------------
+        🎂 HAPPY BIRTHDAY ANU 🎂
+----------------------------------------
+
+Dear Anu,
+
+On your special day, I just want you to feel
+how much you are appreciated, cared for,
+and how much happiness you bring to others.
+
+You are someone who makes life comfortable and bright,
+and I hope today reminds you of all the warmth you spread.
+
+Keep smiling, keep shining, and know
+that someone is quietly grateful for you every single day.
+`;
+
+let i = 0;
+const speed = 40;
+const textElement = document.getElementById("text");
+
+function typeWriter() {
+  if (i < message.length) {
+    textElement.innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}
+
+function showExtra() {
+  document.getElementById("extra").style.display = "block";
+}
+
+window.onload = () => {
+  typeWriter();
+  setInterval(createHeart, 700);
+  document.getElementById("bgMusic").play().catch(()=>{});
+};
+</script>
+
+</body>
+</html>
